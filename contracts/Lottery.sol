@@ -4,11 +4,12 @@ contract Lottery {
     address public manager;
     address[] public players;
 
+    // Default Constructor
     function Lottery() public {
         manager = msg.sender;
     }
 
-    // Entering the player to the lottey
+    // Entering the player to the lottery
     function enter() public payable {
         require(msg.value > .01 ether);
         players.push(msg.sender);
@@ -29,5 +30,10 @@ contract Lottery {
     modifier restricted() {
         require(msg.sender == manager);
         _;
+    }
+
+    // Return Players Array
+    function getPlayers() public view returns (address[]){
+        return players;
     }
 }
