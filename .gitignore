@@ -102,7 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
-!/.idea/
+/.idea/
 /.idea/.gitignore
 /.idea/aws.xml
 /.idea/misc.xml
@@ -110,3 +110,4 @@ dist
 /.idea/Solidity-Lottery-Contract.iml
 /.idea/vcs.xml
 /.idea/jsLibraryMappings.xml
+
