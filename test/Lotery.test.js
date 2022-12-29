@@ -4,6 +4,7 @@ const Web3 = require(`web3`);
 const web3 = new Web3(ganache.provider());
 
 const {interface, bytecode} = require(`../compile`);
+const {aliases} = require("mocha/lib/cli/run-option-metadata");
 
 let lottery;
 let accounts;
@@ -36,7 +37,7 @@ describe(`Lottery Contract`, () => {
 
         const players = await lottery.methods.getPlayers().call({
             from: accounts[0]
-        });
+        })
 
         assert.equal(accounts[0], players[0]);
         assert.equal(1, players.length);
@@ -64,5 +65,35 @@ describe(`Lottery Contract`, () => {
         assert.equal(accounts[1], players[1]);
         assert.equal(accounts[2], players[2]);
         assert.equal(3, players.length);
+    });
+
+    it('should requires a minimum amount of ether to enter', async () => {
+
+        try {
+            await lottery.methods.enter().send({
+                from: accounts[0], value: 0
+            });
+            assert(false);
+
+        } catch (e) {
+            assert.ok(e);
+        }
+    });
+
+    it(`Should only manager can call the function`, async () => {
+        try {
+            await lottery.methods.pickWinner().send({
+                from: accounts[1],
+
+            });
+            assert(false);
+
+        } catch (e) {
+            assert(e);
+        }
+    })
+
+    it('should send money to the winner and reset players array', async () => {
+
     });
 })
