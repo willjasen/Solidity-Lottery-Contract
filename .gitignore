@@ -2,6 +2,8 @@
 secrets.json
 verbose.txt
 build/
+.states/
+contracts/artifacts/
 
 # Logs
 logs
