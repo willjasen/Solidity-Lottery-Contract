@@ -1,3 +1,8 @@
+# via willjasen
+secrets.json
+verbose.txt
+build/
+
 # Logs
 logs
 *.log
@@ -110,4 +115,3 @@ dist
 /.idea/Solidity-Lottery-Contract.iml
 /.idea/vcs.xml
 /.idea/jsLibraryMappings.xml
-
