@@ -1,6 +1,13 @@
 # Lottery Smart Contract
 
-This is a simple Ethereum lottery smart contract built using Solidity. Participants can enter the lottery by sending a specified amount of Ether to the contract. Once enough participants have entered, the contract owner (manager) can choose a random winner who will receive the entire pool of Ether.
+This is a simple Ethereum lottery smart contract built using Solidity.
+Participants enter the lottery by choosing 4 numbers.
+After a certain timestamp is reached, the winning numbers can be drawn.
+If the winning numbers do not match that of what the participants chose, the lottery continues.
+If the winning numbers are matched, then the winning participant is sent the jackpot.
+
+This project is for testing purposes only. The biggest concern right now is a source of entropy to generate the winning numbers.
+Without sufficient entropy, the winning numbers could be manipulated.
 
 ## Repository Structure
 
